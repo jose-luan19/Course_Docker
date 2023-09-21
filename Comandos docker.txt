@@ -1,0 +1,56 @@
+#Cria e executa um container a partir de uma imagem
+docker run
+##PARAMETRÔS:
+-it (iterativo - usa o terminal como novo)
+-d (detached - backgrount)
+-p 80:80 (porta em que estará na maquina, com porta do container)
+--name(nomear container)
+nome da imagem
+
+v- nome_volume:diretorio (criar volume) * diretorio precisar ser compativel com WORKDIR
+OBS.*: 
+usar a maquina como volume com bind mount
+-v diretorio que eu quero salvar:diretorio que é salvo no docker
+e ele ainda servirá para atualizar todo o projeto caso passe
+diretorio_projeto:WORKDIR_do_Dockerfile
+
+
+--rm (apagar o container após execução)
+[nome_imagem]
+
+
+
+# Criar imagens a partir do Dockerfile
+docker build
+##PARAMETRÔS
+-t [name](name:tagVersion)
+Endereço do Dockerfile
+
+#Verificar containers
+docker ps -a
+
+#Verificar imagens
+docker images
+
+#Verificar volumes
+docker volumes ls
+
+#Verificar networks
+docker network ls
+
+#Criar network
+docker network create ## [nome] (driver default: bridge)
+##PARAMETRÔS
+-d [driver]
+
+OBS.* no network host geralmente é preciso criar no código
+Ex.: após criar a image e network 
+docker run -d -p [3306]:3306 --name container_mysql_flask  --network flasknetwork -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysqlbridge
+
+na conexão entre container nem é preciso externalizar portas
+
+#Conectar container a uma network
+docker network connect [nome_network] [container(name OR id)]
+
+#Desconectar container a uma network
+docker network disconnect [nome_network] [container(name OR id)]
