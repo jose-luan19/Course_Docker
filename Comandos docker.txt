@@ -54,3 +54,15 @@ docker network connect [nome_network] [container(name OR id)]
 
 #Desconectar container a uma network
 docker network disconnect [nome_network] [container(name OR id)]
+
+#Criação de variaveis de ambiente:
+-e nome_variavel=valor
+quando for rodar o docker run pelo terminal
+
+#Criar varios container com compose
+docker compose up
+##PARAMETRÔS:
+-d (detached - backgrount)
+
+#Verificar containers do compose rodando
+docker compose ps
