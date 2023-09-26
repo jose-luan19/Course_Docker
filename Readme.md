@@ -103,7 +103,7 @@ docker swarm init
 
 ## join docker swarm
 ```console
-docker swarm join --token SWMTKN-1-27wjwr1gfjqeg6bjldzb39nm3cdb9u60i6giqsy0cu6790tl8b-8b1nblqv85s6y11xgln3myhv8 [IP]:2377
+docker swarm join --token [TOKEN] [IP]:2377
 ```
 
 ## Get token
