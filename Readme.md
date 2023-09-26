@@ -1,6 +1,10 @@
-#Cria e executa um container a partir de uma imagem
+#Comandos docker
+
+## Cria e executa um container a partir de uma imagem
+```console
 docker run
-##PARAMETRÔS:
+```
+### PARAMETRÔS:
 -it (iterativo - usa o terminal como novo)
 -d (detached - backgrount)
 -p 80:80 (porta em que estará na maquina, com porta do container)
@@ -20,27 +24,43 @@ diretorio_projeto:WORKDIR_do_Dockerfile
 
 
 
-# Criar imagens a partir do Dockerfile
+## Criar imagens a partir do Dockerfile
+```console
 docker build
-##PARAMETRÔS
+```
+
+###PARAMETRÔS
 -t [name](name:tagVersion)
 Endereço do Dockerfile
 
-#Verificar containers
+## Verificar containers
+```console
 docker ps -a
+```
 
-#Verificar imagens
+## Verificar imagens
+```console
 docker images
+```
 
-#Verificar volumes
+
+## Verificar volumes
+```console
 docker volumes ls
+```
 
-#Verificar networks
+## Verificar networks
+```console
 docker network ls
+```
 
-#Criar network
-docker network create ## [nome] (driver default: bridge)
-##PARAMETRÔS
+## Criar network
+```console
+docker network create [nome]
+```
+(driver default: bridge)
+
+### PARAMETRÔS
 -d [driver]
 
 OBS.* no network host geralmente é preciso criar no código
@@ -49,20 +69,44 @@ docker run -d -p [3306]:3306 --name container_mysql_flask  --network flasknetwor
 
 na conexão entre container nem é preciso externalizar portas
 
-#Conectar container a uma network
+## Conectar container a uma network
+```console
 docker network connect [nome_network] [container(name OR id)]
+```
 
-#Desconectar container a uma network
+## Desconectar container a uma network
+```console
 docker network disconnect [nome_network] [container(name OR id)]
+```
 
-#Criação de variaveis de ambiente:
+### Criação de variaveis de ambiente:
 -e nome_variavel=valor
 quando for rodar o docker run pelo terminal
 
-#Criar varios container com compose
+## Criar varios container com compose
+```console
 docker compose up
-##PARAMETRÔS:
+```
+
+### PARAMETRÔS:
 -d (detached - backgrount)
 
-#Verificar containers do compose rodando
+## Verificar containers do compose rodando
+```console
 docker compose ps
+```
+
+## Iniciar docker swarm
+```console
+docker swarm init
+```
+
+## join docker swarm
+```console
+docker swarm join --token SWMTKN-1-27wjwr1gfjqeg6bjldzb39nm3cdb9u60i6giqsy0cu6790tl8b-8b1nblqv85s6y11xgln3myhv8 [IP]:2377
+```
+
+## Get token
+```console
+docker swarm join-token manager
+```
