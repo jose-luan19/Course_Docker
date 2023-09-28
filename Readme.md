@@ -110,3 +110,62 @@ docker swarm join --token [TOKEN] [IP]:2377
 ```console
 docker swarm join-token manager
 ```
+
+## Criar serviços no swarm
+```console
+docker service create [IMAGE]
+```
+### PARAMETRÔS:
+ --name [ NAME ]
+ --replicas [ QUANTIDADE ]
+ -p [portas local : docker]
+ --network [NOME DA REDE] usada para isolar certos container dentro da orquestração, e o driver de rede do swarm é o overlay
+
+## Node sair do Swarm
+```console
+docker swarm leave
+```
+
+## Remover Node
+```console
+docker node rm [ID]
+```
+caso ainda eseja rodando um serviço basta usar o -f
+
+## Inspecionar services
+```console
+docker service inspect [ID]
+```
+
+## Verificar container que estão num serviço
+```console
+docker service ps [ID]
+```
+
+## Criar swarm junto do arquivo compose
+```console
+docker stack deploy -c docker-compose.yaml [NAME]
+```
+
+## Escalar container já conectados ao meu orquestrador
+```console
+docker service scale [NAME_SERVICE]=[número]
+```
+
+## Para de receber TASK do node manager
+```console
+docker node update --availability drain [ID]
+```
+
+status drain para de receber
+pode retornar para active que é o padrão
+
+## Atulaizar a imagem de um serviço
+```console
+docker service update --image [IMAGE] [IDSERVICE]
+```
+
+## Atulaizar a rede de um serviço
+```console
+docker service update --network-add [REDE] [IDSERVICE]
+```
