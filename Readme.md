@@ -169,3 +169,91 @@ docker service update --image [IMAGE] [IDSERVICE]
 ```console
 docker service update --network-add [REDE] [IDSERVICE]
 ```
+## Atulaizar a rede de um serviço
+```console
+docker service update --network-add [REDE] [IDSERVICE]
+```
+# No Kube existe o deployment que seria o meu serviço e os pods que são como computadores que hospedam containers, o meu serviço pode ser externalizado usando o minikube e caso algum pod caia, outro pod de replica substitui seu lugar para a aplicação continuar no ar
+## AO INSTALAR O 'MINIKUBE' ELE BUSCA TAMBÉM O KUBERNETS E JÁ ASSOCIA
+## Iniciando minikube com docker:
+```console
+minikube start --driver=docker
+```
+
+## Criar deployment no Kube
+```console
+kubectl create deployment [NAME-DEPLOY] --image=[NOME_IMAGE] 
+```
+
+## Checando deployments 
+```console
+kubectl get deployment OU
+kubectl describe deployment
+```
+
+## Checando pods 
+```console
+kubectl get pods OU
+kubectl describe pods
+```
+
+## Configurações do Kube 
+```console
+kubectl config view
+```
+
+## Criar service no Kube
+```console
+kubectl expose deployment [NAME-DEPLOY] --type=[TIPO] --port=[PORTA]
+```
+
+## Expor service no minikube
+```console
+minikube service [NAME-DEPLOY]
+```
+
+## Checando services 
+```console
+kubectl get services OU
+kubectl describe services/[NAME-DEPLOY]
+```
+
+## Replicar aplicação 
+```console
+kubectl scale deployment/[NAME-DEPLOY] --replicas=[NÚMERO]
+```
+
+## Checando replicas 
+```console
+kubectl get rs
+```
+
+## Atualizar imagem pelo pod manager 
+```console
+kubectl set image deployment/[NAME-DEPLOY] [NAME-CONTAINER]=[NEW-NAME-IMAGE]
+```
+
+## Checar alteração no deploy
+```console
+kubectl rollout status deployment/[NAME-DEPLOY]
+```
+
+## Desfazer alteração 
+```console
+kubectl rollout undo deployment/[NAME-DEPLOY]
+```
+
+## Deletar service do Kube 
+```console
+kubectl delete service [NAME-DEPLOY]
+```
+
+## Deletar deployment do Kube 
+```console
+kubectl delete deployment [NAME-DEPLOY]
+```
+
+## Criar Deployment por arquivo yaml
+```console
+kubectl apply -f [NAME-ARQUIVO]
+```
