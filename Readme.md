@@ -270,7 +270,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/a
 ```
 
 ## Para acessar o dashboard você precisa se autenticar e para isso deve criar dois services
-Um <a href="https://github.com/jose-luan19/Course_Docker/blob/main/dashboard-adminuser.yaml">ServiceAccount </a> com o tipo de usuario e outro <a href="https://github.com/jose-luan19/Course_Docker/blob/main/cluster-admin.yaml">ClusterRoleBinding </a>  fazendo uma ponte entre o serviço de usuario criado antes e o cluster
+Um <a href="https://github.com/jose-luan19/Course_Docker/blob/main/Kubernets/dashboard-adminuser.yaml">ServiceAccount </a> com o tipo de usuario e outro <a href="https://github.com/jose-luan19/Course_Docker/blob/main/Kubernets/cluster-admin.yaml">ClusterRoleBinding </a>  fazendo uma ponte entre o serviço de usuario criado antes e o cluster
 
 ## Criar token para logar
 ```console
