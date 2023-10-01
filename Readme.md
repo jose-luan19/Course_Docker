@@ -257,3 +257,31 @@ kubectl delete deployment [NAME-DEPLOY]
 ```console
 kubectl apply -f [NAME-ARQUIVO]
 ```
+
+# Usando kubernets com docker-desktop
+
+## Instale através da interface
+
+## E logo já poderá usar os proprios comandos do kubectl
+
+## Para iniciar o dashboard você precisa executar o seu deploy
+```console
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+```
+
+## Para acessar o dashboard você precisa se autenticar e para isso deve criar dois services
+Um ServiceAccount com o tipo de usuario e outro ClusterRoleBinding fazendo uma ponte entre o serviço de usuario criado antes e o cluster
+
+## Criar token para logar
+```console
+kubectl -n kubernetes-dashboard create token admin-user
+```
+
+## Executa o servidor e  acessa a url para visulizar o dahsboard
+```console
+kubectl proxy
+```
+
+## Endereço do dashboard
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
