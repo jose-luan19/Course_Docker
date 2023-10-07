@@ -266,20 +266,20 @@ kubectl apply -f [NAME-ARQUIVO]
 
 ## Para iniciar o dashboard você precisa executar o seu deploy
 ```console
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
-```
-
-## Para acessar o dashboard você precisa se autenticar e para isso deve criar dois services
-Um <a href="https://github.com/jose-luan19/Course_Docker/blob/main/Kubernets/dashboard-adminuser.yaml">ServiceAccount </a> com o tipo de usuario e outro <a href="https://github.com/jose-luan19/Course_Docker/blob/main/Kubernets/cluster-admin.yaml">ClusterRoleBinding </a>  fazendo uma ponte entre o serviço de usuario criado antes e o cluster
-
-## Criar token para logar
-```console
-kubectl -n kubernetes-dashboard create token admin-user
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 ```
 
 ## Executa o servidor e  acessa a url para visulizar o dahsboard
 ```console
 kubectl proxy
+```
+
+## Para acessar o dashboard você precisa se autenticar e para isso deve criar dois services, já ter subido o servidor proxy
+Um <a href="https://github.com/jose-luan19/Course_Docker/blob/main/Kubernets/dashboard-adminuser.yaml">ServiceAccount </a> com o tipo de usuario e outro <a href="https://github.com/jose-luan19/Course_Docker/blob/main/Kubernets/cluster-admin.yaml">ClusterRoleBinding </a>  fazendo uma ponte entre o serviço de usuario criado antes e o cluster
+
+## Criar token para logar
+```console
+kubectl -n kubernetes-dashboard create token admin-user
 ```
 
 ## Endereço do dashboard
